@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Realtor Reach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --accent: #43a047;
+      --bg: #f9fbfd;
+      --card: #fff;
+      --border: #e3e6ea;
+      --shadow: 0 2px 8px 0 rgba(30, 42, 70, 0.08);
+      --text: #263238;
+      --muted: #6b7a90;
+      --radius: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 2.5rem 0 2rem 0;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.6rem 0;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #e7f1ff;
+    }
+    .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 999px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #37833b; }
+
+    .search-card {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      max-width: 420px;
+      margin: -40px auto 35px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      border: 1px solid var(--border);
+      position: relative;
+      z-index: 2;
+    }
+    .search-card label {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .search-card select, .search-card input {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      outline: none;
+      margin-bottom: 0.6rem;
+      background: #f6f8fa;
+      color: var(--text);
+      box-sizing: border-box;
+    }
+    .search-card button {
+      align-self: flex-end;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2.2rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.2rem;
+      transition: background 0.2s;
+    }
+    .search-card button:hover { background: #135bb4; }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .how-it-works {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.2rem;
+    }
+    .how-step {
+      flex: 1 1 180px;
+      min-width: 180px;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .how-step svg {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 0.5rem;
+    }
+    .how-step strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.15rem;
+    }
+    .how-step small {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .vendors-list {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1rem 1.7rem 1rem;
+      margin-bottom: 2.8rem;
+      border: 1px solid var(--border);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .vendors-title {
+      font-size: 1.2rem;
+      margin-bottom: 1.1rem;
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .vendors-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .vendor-card {
+      flex: 0 1 140px;
+      background: #f6f8fa;
+      border-radius: var(--radius);
+      padding: 1rem 0.5rem 0.7rem 0.5rem;
+      text-align: center;
+      box-shadow: 0 1px 4px 0 rgba(30, 42, 70, 0.06);
+      font-size: 1rem;
+      border: 1px solid var(--border);
+    }
+    .vendor-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .testimonials {
+      max-width: 640px;
+      margin: 0 auto 2rem auto;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .testimonial {
+      background: #f6f8fa;
+      border-left: 4px solid var(--primary);
+      padding: 1.1rem 1.3rem 0.9rem 1.2rem;
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 1.05rem;
+      box-shadow: 0 1px 4px 0 rgba(30, 42, 70, 0.06);
+      margin-bottom: 0.2rem;
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+    .testimonial .author {
+      font-size: 0.94rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    footer {
+      background: #e3e6ea;
+      color: var(--muted);
+      text-align: center;
+      font-size: 1rem;
+      padding: 1.2rem 0 0.8rem 0;
+      margin-top: 1.5rem;
+      border-top: 1px solid #d5dee8;
+    }
+    .footer-links {
+      margin-bottom: 0.6rem;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 0.7rem;
+    }
+    @media (max-width: 700px) {
+      .how-it-works { flex-direction: column; gap: 1.2rem; }
+      .vendors-cards { flex-direction: column; gap: 0.7rem; }
+      section { padding: 1.2rem 0.4rem; }
+      .search-card { padding: 1.1rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Realtor Reach</h1>
+    <p>Fast-track your property prep. Instantly connect with trusted contractors & vendors.</p>
+    <button class="cta-btn" onclick="window.scrollTo({top: 300, behavior: 'smooth'})">Find Vendors Now</button>
+  </header>
+
+  <div class="search-card" id="search">
+    <label for="location">Location</label>
+    <input type="text" id="location" placeholder="Enter city or ZIP">
+
+    <label for="vendor-type">Vendor Type</label>
+    <select id="vendor-type">
+      <option value="">Select service...</option>
+      <option value="cleaning">Cleaning</option>
+      <option value="staging">Staging</option>
+      <option value="painting">Painting</option>
+      <option value="repairs">Repairs</option>
+      <option value="landscaping">Landscaping</option>
+      <option value="plumbing">Plumbing</option>
+      <option value="electrician">Electrician</option>
+    </select>
+    <button onclick="alert('This is a prototype. Search is not functional.')">Search</button>
+  </div>
+
+  <section>
+    <h2 style="text-align:center; margin-bottom:2.2rem; color:#1a73e8;">How it Works</h2>
+    <div class="how-it-works">
+      <div class="how-step">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21v-2A6.5 6.5 0 0 1 12 12a6.5 6.5 0 0 1 6.5 6.5v2"/></svg>
+        <strong>1. Enter property details</strong>
+        <small>Let us know where and what you need.</small>
+      </div>
+      <div class="how-step">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 3v4"/></svg>
+        <strong>2. Browse vetted vendors</strong>
+        <small>See trusted, reviewed contractors fit for your job.</small>
+      </div>
+      <div class="how-step">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 11l9 9 9-9"/><path d="M12 3v17"/></svg>
+        <strong>3. Connect and book instantly</strong>
+        <small>Contact, compare, and schedule in seconds.</small>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="vendors-list">
+      <div class="vendors-title">Our Trusted Vendor Types</div>
+      <div class="vendors-cards">
+        <div class="vendor-card"><span class="icon">🧹</span>Cleaning</div>
+        <div class="vendor-card"><span class="icon">🛋️</span>Staging</div>
+        <div class="vendor-card"><span class="icon">🎨</span>Painting</div>
+        <div class="vendor-card"><span class="icon">🔨</span>Repairs</div>
+        <div class="vendor-card"><span class="icon">🌳</span>Landscaping</div>
+        <div class="vendor-card"><span class="icon">🚿</span>Plumbing</div>
+        <div class="vendor-card"><span class="icon">💡</span>Electrician</div>
+      </div>
+      <div style="text-align:center; color:var(--muted); margin-top:1.1rem;">
+        All vendors are verified and reviewed.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="text-align:center; color:#1a73e8; margin-bottom:1.4rem;">What Realtors Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        “Realtor Reach saved me days of calling around. I had my property ready for showing in record time!”
+        <div class="author">– Alex M., Keller Williams</div>
+      </div>
+      <div class="testimonial">
+        “Every vendor I’ve used has been professional and reliable. Total game changer for my listings.”
+        <div class="author">– Jamie R., Compass Realty</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Privacy</a>
+    </div>
+    &copy; 2025 Realtor Reach. All rights reserved.
+  </footer>
+</body>
+</html>
